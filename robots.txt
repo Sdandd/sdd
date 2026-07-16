@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sdandd.github.io/Sdd/sitemap.xml
