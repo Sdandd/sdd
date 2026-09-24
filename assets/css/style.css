@@ -3,14 +3,14 @@
    Pour changer une couleur du site, modifier UNIQUEMENT ce bloc.
    ========================================================== */
 :root{
-  --navy:      #0C2340;   /* bleu foncé : header, hero, textes, pied de page */
-  --navy-2:    #16365F;   /* bleu foncé, un ton plus clair (survols) */
-  --sky:       #8CC4F0;   /* bleu clair : boutons, accents sur fond foncé */
-  --sky-deep:  #1D6FB8;   /* bleu moyen : petits textes/accents sur fond blanc (lisible) */
-  --mist:      #EAF3FB;   /* bleu très pâle : fonds de sections alternées */
+  --navy:      #0A4568;   /* bleu foncé : header, hero, textes, pied de page */
+  --navy-2:    #123F61;   /* bleu foncé, un ton plus clair (survols) */
+  --sky:       #20B6E8;   /* bleu clair : boutons, accents sur fond foncé */
+  --sky-deep:  #087DAA;   /* bleu moyen : petits textes/accents sur fond blanc (lisible) */
+  --mist:      #EAF4F8;   /* bleu très pâle : fonds de sections alternées */
   --white:     #FFFFFF;
-  --ink:       #0C2340;
-  --line:      rgba(12,35,64,0.14);
+  --ink:       #0A4568;
+  --line:      rgba(10,69,104,0.14);
   --radius:    2px;
 }
 
@@ -25,7 +25,7 @@ body{
   -webkit-text-size-adjust: 100%;
 }
 h1,h2,h3{
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin: 0;
@@ -43,7 +43,7 @@ img{ max-width: 100%; }
 .btn{
   display:inline-block;
   padding: 14px 26px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -70,17 +70,16 @@ img{ max-width: 100%; }
 .header-inner{ display:flex; align-items:center; height: 76px; gap: 20px; }
 .logo{ display:flex; align-items:center; gap:10px; margin-right:auto; }
 .logo-mark{
-  width: 20px; height: 20px;
-  background: var(--sky);
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  width: 38px; height: 38px;
+  color: var(--white);
   display:inline-block;
 }
-.logo-text{ font-family:'Oswald',sans-serif; font-size:1.3rem; font-weight:700; color: var(--white); letter-spacing: 0.03em; }
+.logo-text{ font-family:'Roboto Condensed',sans-serif; font-size:1.3rem; font-weight:700; color: var(--white); letter-spacing: 0.03em; }
 .logo-text .amp{ color: var(--sky); }
 .main-nav{ display:flex; gap: 28px; margin-right: 8px; }
 .main-nav a{
   color: rgba(255,255,255,0.8);
-  font-family:'Oswald',sans-serif;
+  font-family:'Roboto Condensed',sans-serif;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -91,7 +90,7 @@ img{ max-width: 100%; }
 /* bouton menu (téléphone) */
 .nav-toggle{
   display:none;
-  width: 44px; height: 44px;
+  min-width: 44px; height: 44px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: var(--radius);
@@ -99,22 +98,23 @@ img{ max-width: 100%; }
   padding: 0;
   flex-direction: column; align-items: center; justify-content: center; gap: 5px;
 }
-.nav-toggle span{ display:block; width: 20px; height: 2px; background: var(--white); transition: transform .2s ease, opacity .2s ease; }
-.nav-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle span{ display:none; }
+.nav-toggle-label{ display:inline !important; color:var(--white); font:600 .84rem 'Roboto Condensed',sans-serif; letter-spacing:.05em; text-transform:uppercase; }
+.nav-toggle::before{ content:"☰"; color:var(--white); font-size:1rem; margin-right:8px; }
+.nav-toggle[aria-expanded="true"]::before{ content:"×"; font-size:1.35rem; line-height:1; }
 
 /* ---------- Hero ---------- */
 .hero{
   position: relative;
   background: var(--navy);
   color: var(--white);
-  padding: 100px 0 120px;
+  padding: 104px 0 112px;
   overflow: hidden;
 }
-.hero-inner{ position: relative; z-index: 2; max-width: 640px; }
+.hero-inner{ position: relative; z-index: 2; max-width: 1100px; display:grid; grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr); align-items:center; gap:64px; }
+.hero-copy{ max-width: 650px; }
 .eyebrow{
-  font-family:'Oswald',sans-serif;
+  font-family:'Roboto Condensed',sans-serif;
   color: var(--sky);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -122,18 +122,25 @@ img{ max-width: 100%; }
   margin: 0 0 18px;
 }
 .hero h1{
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  line-height: 1.05;
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  line-height: .98;
   color: var(--white);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  letter-spacing: -.015em;
 }
+.hero h1 span{ color: var(--sky); }
 .hero-text{
   color: rgba(255,255,255,0.8);
-  font-size: 1.05rem;
-  max-width: 480px;
-  margin: 0 0 36px;
+  font-size: 1.12rem;
+  max-width: 440px;
+  margin: 0 0 34px;
+  line-height: 1.75;
 }
 .hero-actions{ display:flex; gap: 16px; flex-wrap: wrap; }
+.hero-brand{ justify-self:center; width:min(100%, 310px); aspect-ratio:1; display:grid; place-items:center; position:relative; color:rgba(255,255,255,.92); }
+.hero-brand::before{ content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.16); transform:rotate(45deg); }
+.hero-brand svg{ width:68%; position:relative; }
+.hero-brand span{ position:absolute; bottom:17%; font:600 1rem 'Roboto Condensed',sans-serif; letter-spacing:.24em; color:var(--sky); }
 
 /* quadrillage "plan d'architecte" en bleu clair */
 .blueprint-grid{
@@ -141,11 +148,11 @@ img{ max-width: 100%; }
   inset: 0;
   z-index: 1;
   background-image:
-    linear-gradient(rgba(140,196,240,0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(140,196,240,0.14) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to right, transparent 0%, black 40%, black 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 100%);
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to right, transparent 0%, black 45%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45%, black 100%);
 }
 
 /* ---------- Titres de section ---------- */
@@ -157,7 +164,7 @@ img{ max-width: 100%; }
 .section-title.light{ color: var(--white); }
 .tag{
   display:block;
-  font-family:'Oswald',sans-serif;
+  font-family:'Roboto Condensed',sans-serif;
   color: var(--sky-deep);
   font-size: 0.8rem;
   letter-spacing: 0.12em;
@@ -242,7 +249,7 @@ img{ max-width: 100%; }
 
 .ba-badge{
   position:absolute; top: 12px;
-  font-family:'Oswald',sans-serif;
+  font-family:'Roboto Condensed',sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.72rem;
@@ -283,7 +290,7 @@ img{ max-width: 100%; }
 /* boutons "Avant : Démolition / Réseaux / ..." */
 .stages{ display:flex; flex-wrap:wrap; align-items:center; gap: 8px; margin-top: 16px; }
 .stages-label{
-  font-family:'Oswald',sans-serif; text-transform: uppercase; letter-spacing: .06em;
+  font-family:'Roboto Condensed',sans-serif; text-transform: uppercase; letter-spacing: .06em;
   font-size: .75rem; color: var(--sky-deep); margin-right: 2px;
 }
 .stage-btn{
@@ -305,7 +312,7 @@ img{ max-width: 100%; }
 .atouts-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 32px; }
 .atout-num{
   display:block;
-  font-family:'Oswald',sans-serif;
+  font-family:'Roboto Condensed',sans-serif;
   color: var(--sky);
   opacity: .55;
   font-size: 2rem;
@@ -341,7 +348,7 @@ img{ max-width: 100%; }
 
 /* Tablette et petits écrans */
 @media (max-width: 860px){
-  .nav-toggle{ display:flex; }
+  .nav-toggle{ display:flex; align-items:center; justify-content:center; flex-direction:row; padding:0 12px; }
   .main-nav{
     display:none;
     position:absolute; top: 76px; left:0; right:0;
@@ -361,6 +368,8 @@ img{ max-width: 100%; }
   .atouts-grid{ grid-template-columns: 1fr 1fr; }
   .contact-inner{ grid-template-columns: 1fr; }
   .services, .realisations, .atouts, .contact{ padding: 72px 0; }
+  .hero-inner{ grid-template-columns:minmax(0, 1fr) 230px; gap:28px; }
+  .hero{ padding:82px 0 88px; }
 }
 
 /* Téléphone */
@@ -370,10 +379,18 @@ img{ max-width: 100%; }
   .main-nav{ padding-left: 18px; padding-right: 18px; }
   .header-call{ padding: 0; width: 44px; height: 44px; display:grid; place-items:center; font-size: 1.05rem; }
   .call-num{ display:none; }
+  .logo-mark{ width:34px; height:34px; }
+  .logo{ gap:7px; }
 
   .service-grid{ grid-template-columns: 1fr; }
   .atouts-grid{ grid-template-columns: 1fr; }
-  .hero{ padding: 64px 0 80px; }
+  .hero{ padding: 68px 0 76px; }
+  .hero-inner{ display:block; }
+  .hero-brand{ display:none; }
+  .eyebrow{ font-size:.72rem; letter-spacing:.09em; }
+  .hero h1{ font-size:clamp(3rem, 13vw, 4.2rem); margin-bottom:22px; }
+  .hero-text{ font-size:1rem; margin-bottom:28px; }
+  .hero-actions{ gap:10px; }
   .hero-actions .btn{ flex: 1 1 100%; text-align: center; }
   .section-title{ margin-bottom: 32px; }
   .section-intro{ margin: -12px 0 28px; }
